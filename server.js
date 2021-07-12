@@ -10,6 +10,8 @@ const searchBar = require("./routes/searchBar");
 const upload = require("./routes/upload.route.js");
 const background = require("./routes/BackgroundImages");
 const bodyparser = require("body-parser");
+require("dotenv").config();
+
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 global.__basedir = __dirname;
@@ -52,6 +54,8 @@ app.use("/api/auth", auth);
 app.use("/api/bids", bids);
 app.use("/api/search", searchBar);
 
-const PORT = 8080;
+const PORT = 5000;
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(process.env.PORT || PORT, () =>
+  console.log(`Server started on port ${PORT}`)
+);
