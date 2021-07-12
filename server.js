@@ -52,6 +52,6 @@ app.use("/api/auth", auth);
 app.use("/api/bids", bids);
 app.use("/api/search", searchBar);
 
-const PORT = 5000;
+const PORT = 8080;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
