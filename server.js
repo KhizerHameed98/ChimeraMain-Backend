@@ -11,6 +11,7 @@ const upload = require("./routes/upload.route.js");
 const background = require("./routes/BackgroundImages");
 const bodyparser = require("body-parser");
 require("dotenv").config();
+const os = require("os");
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
@@ -57,5 +58,5 @@ app.use("/api/search", searchBar);
 const PORT = 5000;
 
 app.listen(process.env.PORT || PORT, () =>
-  console.log(`Server started on port ${PORT}`)
+  console.log(`Server started on port ${PORT} and Domain is ${os.hostname()}`)
 );

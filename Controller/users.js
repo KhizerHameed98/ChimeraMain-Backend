@@ -5,6 +5,8 @@ const { check, validationResult } = require("express-validator");
 const normalize = require("normalize-url");
 const upload = require("../middleware/fileUpload");
 const User = require("../models/User");
+require("dotenv").config();
+
 
 postNewUser = // check(
   //   'password',
@@ -105,7 +107,7 @@ updateUserInfo = async (req, res) => {
         { address: req.params.address },
         {
           avatar:
-            "http://localhost:5000/uploads/" +
+            `${process.env.HOST}/uploads/` +
             req.file.originalname.toLowerCase().split(" ").join("-"),
 
           // name : req.body.name.toLowerCase().split(' ').join('-'),

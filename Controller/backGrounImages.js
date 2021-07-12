@@ -1,9 +1,12 @@
 const upload = require("../middleware/fileUpload");
 const Image = require("../models/backGroundImages")
 const Tags = require("../models/Tags")
-const URL = "http://localhost:5000/files/";
+const URL = `${process.env.HOST}/files/`;
 const fs = require("fs");
 const path = require("path")
+require("dotenv").config();
+
+
 
 
 // upload background image
@@ -51,7 +54,7 @@ const firstImageUpload = async (req, res) => {
 
 
       const image = new Image({
-          image1 : "http://localhost:5000/uploads/image1.png",
+          image1 : `${process.env.HOST}/uploads/image1.png`,
           name : "image"
     
         });
@@ -104,7 +107,7 @@ const nameChnage = fs.rename(pathToFile, newPathToFile, function (err) {
 
     var image = await Image.findOneAndUpdate({name :  "image"}, {
 
-        image1 : "http://localhost:5000/uploads/image1.png",
+        image1 : `${process.env.HOST}/uploads/image1.png`,
 })
 
               await image.save();
@@ -156,7 +159,7 @@ const imageTwoUpdation = async (req, res) => {
 
         var image = await Image.findOneAndUpdate({name :  "image"}, {
     
-            image2 : "http://localhost:5000/uploads/image2.png",
+            image2 : `${process.env.HOST}/uploads/image2.png`,
     })
     
                    await image.save();
@@ -207,7 +210,7 @@ const imageTwoUpdation = async (req, res) => {
   
         var image = await Image.findOneAndUpdate({name :  "image"}, {
     
-            image3 : "http://localhost:5000/uploads/image3.png",
+            image3 : `${process.env.HOST}/uploads/image3.png`,
     })
     
                    await image.save();
